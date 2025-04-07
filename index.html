@@ -1,0 +1,124 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shafi - The Official Site</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #121212;
+            color: white;
+            text-align: center;
+            margin: 0;
+            padding: 0;
+        }
+        header {
+            background-color: #1e1e1e;
+            padding: 20px;
+        }
+        header img {
+            height: 100px;
+        }
+        h1 {
+            margin-top: 10px;
+            font-size: 2.5em;
+        }
+        .tagline {
+            font-size: 1.2em;
+            color: #bbbbbb;
+            margin-bottom: 20px;
+        }
+        .gallery {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            padding: 20px;
+        }
+        .gallery img {
+            width: 300px;
+            margin: 10px;
+            border-radius: 12px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.5);
+            transition: transform 0.3s;
+        }
+        .gallery img:hover {
+            transform: scale(1.05);
+        }
+        .social {
+            margin-top: 20px;
+        }
+        .social a {
+            color: #ffffff;
+            text-decoration: none;
+            margin: 0 10px;
+            font-size: 1.5em;
+            display: inline-block;
+        }
+        .social img {
+            height: 30px;
+            vertical-align: middle;
+        }
+        footer {
+            background-color: #1e1e1e;
+            padding: 15px;
+            font-size: 0.9em;
+            color: #888;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <img src="logo.png" alt="Shafi Logo">
+        <h1>Shafi</h1>
+        <div class="tagline">Dream Big, Ride Bigger</div>
+    </header>
+    <section class="gallery">
+        <img src="photo1.jpg" alt="Photo 1">
+        <img src="photo2.jpg" alt="Photo 2">
+        <img src="photo3.jpg" alt="Photo 3">
+        <img src="photo4.jpg" alt="Photo 4">
+    </section>
+    <div class="social">
+        <a href="https://www.facebook.com/share/1AFzReouDm/" target="_blank">
+            <img src="facebook.png" alt="Facebook"> Follow on Facebook
+        </a>
+    </div>
+    <footer>
+        Made with heart by Shafi
+    
+    </footer>
+    <section id="fan-comments" style="padding: 30px; background-color: #181818;">
+        <h2 style="color: #fff; margin-bottom: 20px;">Fan Gallery / Comments</h2>
+        <form id="commentForm" style="margin-bottom: 20px;">
+            <input type="text" id="name" placeholder="Your Name" required
+                style="padding:10px; width:200px; margin-right:10px; border-radius:6px; border:none;">
+            <input type="text" id="message" placeholder="Your Comment" required
+                style="padding:10px; width:300px; margin-right:10px; border-radius:6px; border:none;">
+            <button type="submit"
+                style="padding:10px 20px; background-color:#00b894; color:white; border:none; border-radius:6px;">Post</button>
+        </form>
+        <div id="comments" style="max-width:700px; margin:auto; text-align:left; color:#ddd;"></div>
+    </section>
+
+    <script>
+        const form = document.getElementById('commentForm');
+        const commentsDiv = document.getElementById('comments');
+        let comments = [];
+
+        form.addEventListener('submit', function(e) {
+            e.preventDefault();
+            const name = document.getElementById('name').value.trim();
+            const message = document.getElementById('message').value.trim();
+            if (name && message) {
+                const comment = `<p><strong>${name}</strong>: ${message}</p>`;
+                comments.unshift(comment);
+                commentsDiv.innerHTML = comments.join('');
+                form.reset();
+            }
+        });
+    </script>
+    
+</body>
+</html>
